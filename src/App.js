@@ -1,25 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import { insertionSort } from "util/sorts/insertionSort";
+import { selectionSort } from "util/sorts/selectionSort";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+  insertionSort([4, 3, 2, 1, 5, -5, 20, 17]);
+  selectionSort([4, 3, 2, 1, 5, -5, 20, 17]);
+
+  return <div>Algorithm Packages</div>;
 }
-
-export default App;
