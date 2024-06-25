@@ -1,0 +1,56 @@
+name: Sinple Dev Noti
+
+# ref: https://docs.github.com/en/github-ae@latest/webhooks/webhook-events-and-payloads?actionType=edited#pull_request
+on:
+  pull_request:
+    types: [opened, synchronize, review_requested, closed]
+    # @opened
+    ### A pull request was created.
+    # @synchronize
+    ### A pull request's head branch was updated.
+    # @review_requested
+    ### Review by a person or team was requested for a pull request.
+    # @closed
+    ### A pull request was closed. If merged is false in the webhook payload, the pull request was closed with unmerged commits. If merged is true in the webhook payload, the pull request was merged.
+  pull_request_review:
+    types: [submitted]
+    # @submitted
+    ### review on a pull request was submitted. (general feedback, approve, request change)
+
+jobs:
+  review_requested:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4 # 제거 시 cannot find action.yml
+      - name: Run My Actions
+        uses: ./ # the path of action.yml
+        with:
+          # githubID: slackID
+          user-data: '{ "taekjunsim": "Taekjun Sim", "fodi-sim": "심택준" }' # 외부에서 데이터를 가지고 올 방법은 없나??!!!!
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SINGING_SECRET: ${{ secrets.SINGING_SECRET }}
+          # github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # review_submitted:
+  #   if: github.event.review.state == 'APPROVED'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4 # 제거 시 cannot find action.yml
+  #     - name: Run My Actions
+  #       uses: ./
+  #       env:
+  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  # if_merged:
+  #   if: github.event.pull_request.merged == true
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4 # 제거 시 cannot find action.yml
+  #     - name: Run My Actions
+  #       uses: ./
+  #       env:
+  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

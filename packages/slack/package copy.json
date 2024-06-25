@@ -1,0 +1,27 @@
+{
+  "name": "slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js --license licenses.txt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taekjunsim/slack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taekjunsim/slack/issues"
+  },
+  "homepage": "https://github.com/taekjunsim/slack#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@slack/bolt": "^3.16.0",
+    "axios": "^1.6.2"
+  }
+}

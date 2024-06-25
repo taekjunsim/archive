@@ -1,0 +1,9 @@
+name: "hello-my-action"
+description: "Hello My Action"
+inputs:
+  user-data:
+    description: "user data"
+    required: true
+runs:
+  using: "node16"
+  main: "dist/index.js"
