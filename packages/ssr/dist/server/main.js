@@ -1481,25 +1481,36 @@ eval("/*!\n * vary\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n * MIT
 
 /***/ }),
 
-/***/ "./client/App.tsx":
-/*!************************!*\
-  !*** ./client/App.tsx ***!
-  \************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst react_1 = __webpack_require__(/*! react */ \"../../node_modules/react/index.js\");\nconst App = () => {\n    const [count, setCount] = (0, react_1.useState)(0);\n    return ((0, jsx_runtime_1.jsxs)(\"div\", { children: [\"Count: \", count, (0, jsx_runtime_1.jsx)(\"button\", { onClick: () => setCount((count) => count + 1), children: \"Increase count\" })] }));\n};\nexports[\"default\"] = App;\n\n\n//# sourceURL=webpack://ssr/./client/App.tsx?");
-
-/***/ }),
-
-/***/ "./server/index.tsx":
-/*!**************************!*\
-  !*** ./server/index.tsx ***!
-  \**************************/
+/***/ "./src/client/App.tsx":
+/*!****************************!*\
+  !*** ./src/client/App.tsx ***!
+  \****************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\n// server/index.tsx\nconst express_1 = __importDefault(__webpack_require__(/*! express */ \"../../node_modules/express/index.js\"));\nconst fs_1 = __importDefault(__webpack_require__(/*! fs */ \"fs\"));\nconst path_1 = __importDefault(__webpack_require__(/*! path */ \"path\"));\nconst server_1 = __importDefault(__webpack_require__(/*! react-dom/server */ \"../../node_modules/react-dom/server.node.js\"));\nconst App_1 = __importDefault(__webpack_require__(/*! ../client/App */ \"./client/App.tsx\"));\nconst app = (0, express_1.default)();\n// 클라이언트 사이드에서 빌드된 html을 읽어와 사용\nconst html = fs_1.default.readFileSync(path_1.default.resolve(__dirname, \"../client/index.html\"), \"utf-8\");\napp.get(\"/\", (req, res) => {\n    // <App /> 을 렌더링\n    const renderString = server_1.default.renderToString((0, jsx_runtime_1.jsx)(App_1.default, {}));\n    // <div id=\"root\"></div> 내부에 삽입\n    res.send(html.replace('<div id=\"root\"></div>', `<div id=\"root\">${renderString}</div>`));\n});\n// 위의 / 이외의 경로로 요청할 경우(js, css 등)\n// dist/client 폴더에 있는 파일들 제공\napp.use(\"/\", express_1.default.static(\"dist/client\"));\napp.listen(3000, () => {\n    console.log(\"Server is listening on port 3000\");\n});\n\n\n//# sourceURL=webpack://ssr/./server/index.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports[\"default\"] = App;\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst Count_1 = __importDefault(__webpack_require__(/*! ./Count */ \"./src/client/Count.tsx\"));\nfunction App() {\n    return ((0, jsx_runtime_1.jsxs)(\"html\", { children: [(0, jsx_runtime_1.jsxs)(\"head\", { children: [(0, jsx_runtime_1.jsx)(\"meta\", { charSet: \"utf-8\" }), (0, jsx_runtime_1.jsx)(\"meta\", { name: \"viewport\", content: \"width=device-width, initial-scale=1\" }), (0, jsx_runtime_1.jsx)(\"title\", { children: \"My app\" })] }), (0, jsx_runtime_1.jsx)(\"body\", { children: (0, jsx_runtime_1.jsx)(Count_1.default, {}) })] }));\n}\n\n\n//# sourceURL=webpack://ssr/./src/client/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/client/Count.tsx":
+/*!******************************!*\
+  !*** ./src/client/Count.tsx ***!
+  \******************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports[\"default\"] = Count;\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst react_1 = __webpack_require__(/*! react */ \"../../node_modules/react/index.js\");\nfunction Count() {\n    const [count, setCount] = (0, react_1.useState)(0);\n    console.log(count);\n    return ((0, jsx_runtime_1.jsxs)(\"div\", { children: [\"Count: \", count, (0, jsx_runtime_1.jsx)(\"button\", { onClick: () => setCount((count) => count + 1), children: \"test\" })] }));\n}\n\n\n//# sourceURL=webpack://ssr/./src/client/Count.tsx?");
+
+/***/ }),
+
+/***/ "./src/server/index.tsx":
+/*!******************************!*\
+  !*** ./src/server/index.tsx ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst express_1 = __importDefault(__webpack_require__(/*! express */ \"../../node_modules/express/index.js\"));\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"../../node_modules/react-dom/server.node.js\");\nconst App_1 = __importDefault(__webpack_require__(/*! ../client/App */ \"./src/client/App.tsx\"));\nconst app = (0, express_1.default)();\napp.use(\"/\", express_1.default.static(\"dist/client\"));\napp.use(\"/\", (req, res) => {\n    const { pipe } = (0, server_1.renderToPipeableStream)((0, jsx_runtime_1.jsx)(App_1.default, {}), {\n        bootstrapScripts: [\"/main.js\"], // localhost.com/main.js, html을 받자마자 스크립트를 다운로드\n        onShellReady() {\n            res.setHeader(\"content-type\", \"text/html\");\n            pipe(res); // pipe 메소드의 output이 html\n        },\n    });\n});\napp.listen(3000, () => {\n    console.log(\"Server is listening on port 3000\");\n});\n\n\n//# sourceURL=webpack://ssr/./src/server/index.tsx?");
 
 /***/ }),
 
@@ -1838,7 +1849,7 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"100\":\"Continue\",\"101\":\"
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./server/index.tsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/server/index.tsx");
 /******/ 	
 /******/ })()
 ;

@@ -1,5 +1,4 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const commonConfig = {
@@ -22,22 +21,17 @@ const commonConfig = {
 const clientConfig = {
   ...commonConfig,
   name: "client",
-  entry: path.resolve(__dirname, "client/index.tsx"),
+  entry: path.resolve(__dirname, "src/client/index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist/client"),
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "client/index.html",
-    }),
-  ],
 };
 
 const serverConfig = {
   ...commonConfig,
   name: "server",
   target: "node",
-  entry: path.resolve(__dirname, "server/index.tsx"),
+  entry: path.resolve(__dirname, "src/server/index.tsx"),
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist/server"),

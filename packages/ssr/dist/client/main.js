@@ -100,23 +100,33 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./client/App.tsx":
-/*!************************!*\
-  !*** ./client/App.tsx ***!
-  \************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ "./src/client/App.tsx":
+/*!****************************!*\
+  !*** ./src/client/App.tsx ***!
+  \****************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst react_1 = __webpack_require__(/*! react */ \"../../node_modules/react/index.js\");\nconst App = () => {\n    const [count, setCount] = (0, react_1.useState)(0);\n    return ((0, jsx_runtime_1.jsxs)(\"div\", { children: [\"Count: \", count, (0, jsx_runtime_1.jsx)(\"button\", { onClick: () => setCount((count) => count + 1), children: \"Increase count\" })] }));\n};\nexports[\"default\"] = App;\n\n\n//# sourceURL=webpack://ssr/./client/App.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports[\"default\"] = App;\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst Count_1 = __importDefault(__webpack_require__(/*! ./Count */ \"./src/client/Count.tsx\"));\nfunction App() {\n    return ((0, jsx_runtime_1.jsxs)(\"html\", { children: [(0, jsx_runtime_1.jsxs)(\"head\", { children: [(0, jsx_runtime_1.jsx)(\"meta\", { charSet: \"utf-8\" }), (0, jsx_runtime_1.jsx)(\"meta\", { name: \"viewport\", content: \"width=device-width, initial-scale=1\" }), (0, jsx_runtime_1.jsx)(\"title\", { children: \"My app\" })] }), (0, jsx_runtime_1.jsx)(\"body\", { children: (0, jsx_runtime_1.jsx)(Count_1.default, {}) })] }));\n}\n\n\n//# sourceURL=webpack://ssr/./src/client/App.tsx?");
 
 /***/ }),
 
-/***/ "./client/index.tsx":
-/*!**************************!*\
-  !*** ./client/index.tsx ***!
-  \**************************/
+/***/ "./src/client/Count.tsx":
+/*!******************************!*\
+  !*** ./src/client/Count.tsx ***!
+  \******************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports[\"default\"] = Count;\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst react_1 = __webpack_require__(/*! react */ \"../../node_modules/react/index.js\");\nfunction Count() {\n    const [count, setCount] = (0, react_1.useState)(0);\n    console.log(count);\n    return ((0, jsx_runtime_1.jsxs)(\"div\", { children: [\"Count: \", count, (0, jsx_runtime_1.jsx)(\"button\", { onClick: () => setCount((count) => count + 1), children: \"test\" })] }));\n}\n\n\n//# sourceURL=webpack://ssr/./src/client/Count.tsx?");
+
+/***/ }),
+
+/***/ "./src/client/index.tsx":
+/*!******************************!*\
+  !*** ./src/client/index.tsx ***!
+  \******************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ \"../../node_modules/react-dom/client.js\"));\nconst App_1 = __importDefault(__webpack_require__(/*! ./App */ \"./client/App.tsx\"));\nclient_1.default.hydrateRoot(document.getElementById(\"root\"), (0, jsx_runtime_1.jsx)(App_1.default, {}));\n\n\n//# sourceURL=webpack://ssr/./client/index.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst client_1 = __webpack_require__(/*! react-dom/client */ \"../../node_modules/react-dom/client.js\");\nconst App_1 = __importDefault(__webpack_require__(/*! ./App */ \"./src/client/App.tsx\"));\n(0, client_1.hydrateRoot)(document, (0, jsx_runtime_1.jsx)(App_1.default, {}));\n\n\n//# sourceURL=webpack://ssr/./src/client/index.tsx?");
 
 /***/ })
 
@@ -164,7 +174,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./client/index.tsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/client/index.tsx");
 /******/ 	
 /******/ })()
 ;
