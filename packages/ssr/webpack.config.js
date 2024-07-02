@@ -1,8 +1,10 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackAssetsManifest = require("webpack-assets-manifest");
 
 const commonConfig = {
-  mode: "development",
+  mode: "production",
   resolve: {
     extensions: [".ts", ".js", ".tsx", ".jsx"],
   },
@@ -13,9 +15,24 @@ const commonConfig = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader"],
+      },
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new WebpackAssetsManifest({
+      output: "asset-manifest.json",
+      publicPath: true, // optional: include full public paths in the manifest
+    }),
+    new MiniCssExtractPlugin({
+      filename: "static/css/[name].[contenthash:8].css",
+      chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+    }),
+  ],
 };
 
 const clientConfig = {

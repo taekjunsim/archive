@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 import express from "express";
 import { renderToPipeableStream } from "react-dom/server";
 import App from "../client/App";
@@ -6,12 +8,21 @@ const app = express();
 
 app.use("/", express.static("dist/client"));
 
+function getManifest() {
+  const manifestPath = path.resolve(__dirname, "../client/asset-manifest.json");
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  return manifest;
+}
+
 app.use("/", (req, res) => {
-  const { pipe } = renderToPipeableStream(<App />, {
-    bootstrapScripts: ["/main.js"], // localhost.com/main.js, html을 받자마자 스크립트를 다운로드
+  const { pipe } = renderToPipeableStream(<App assetMap={getManifest()} />, {
+    bootstrapScripts: [getManifest()["main.js"]],
+    bootstrapScriptContent: `window.assetMap = ${JSON.stringify(
+      getManifest()
+    )};`,
     onShellReady() {
       res.setHeader("content-type", "text/html");
-      pipe(res); // pipe 메소드의 output이 html
+      pipe(res);
     },
   });
 });
