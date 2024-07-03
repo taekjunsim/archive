@@ -17,7 +17,7 @@ function soldierAnts(n, arr) {
   return maxArr[n - 1];
 }
 
-export default { soldierAnts };
+export default soldierAnts;
 
 /*
   maxArr[i - 1]은 항상 최대값이기 때문에 이전 값들의 합계가 모두 포함되어 있다.

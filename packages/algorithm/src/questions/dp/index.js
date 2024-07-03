@@ -1,3 +1,4 @@
 import soldierAnts from "./soldierAnts";
+import makeItOne from "./makeItOne";
 
-export default { soldierAnts };
+export default { soldierAnts, makeItOne };
