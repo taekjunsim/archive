@@ -1,4 +1,6 @@
 import Count from "./Count";
+import { Routes, Route } from "react-router-dom";
+import Main from "./Main";
 
 type PropsType = {
   assetMap: { [key: string]: string };
@@ -14,7 +16,10 @@ export default function App({ assetMap }: PropsType) {
         <title>My app</title>
       </head>
       <body>
-        <Count />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/test" element={<Count />} />
+        </Routes>
       </body>
     </html>
   );

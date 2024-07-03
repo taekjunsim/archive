@@ -8,8 +8,8 @@ export default function Count() {
 
   return (
     <div className="test">
-      Count: {count}
-      <button onClick={() => setCount((count) => count + 1)}>test</button>
+      Test Page Count: {count}
+      <button onClick={() => setCount((count) => count + 1)}>button</button>
     </div>
   );
 }

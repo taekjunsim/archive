@@ -8,7 +8,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -20,6 +21,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.0",
+    "react-dev-utils": "^12.0.1",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.2",
