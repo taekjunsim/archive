@@ -8,6 +8,7 @@ export default function App() {
   // questions.dp.soldierAnts(5, [4, 3, 1, 5, 5])
   // questions.dp.makeItOne(26);
   // questions.dp.currencyComposition([3, 15], 3, 5, 7)
+  questions.dp.goldMine(2, "3 4", "1 3 3 2 2 1 4 1 0 6 4 7");
 
   return <div>Algorithm Packages</div>;
 }
