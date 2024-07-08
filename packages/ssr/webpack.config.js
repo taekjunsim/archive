@@ -66,8 +66,8 @@ const commonConfig = {
       publicPath: true, // optional: include full public paths in the manifest
     }),
     new MiniCssExtractPlugin({
-      filename: "static/css/[name].[contenthash:8].css",
-      chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+      filename: "static/css/[name].css",
+      chunkFilename: "static/css/[name].chunk.css",
     }),
   ],
 };

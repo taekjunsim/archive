@@ -9,22 +9,27 @@ const app = express();
 
 app.use("/", express.static("dist/client"));
 
-function getManifest() {
-  const manifestPath = path.resolve(__dirname, "../client/asset-manifest.json");
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-  return manifest;
-}
+const cssFile = fs.readFileSync(
+  path.resolve(__dirname, "../client/static/css/main.css"),
+  "utf8"
+);
+
+const manifest = JSON.parse(
+  fs.readFileSync(
+    path.resolve(__dirname, "../client/asset-manifest.json"),
+    "utf8"
+  )
+);
 
 app.use("/", (req, res) => {
+  console.log(cssFile);
   const { pipe } = renderToPipeableStream(
     <StaticRouter location={req.url}>
-      <App assetMap={getManifest()} />
+      <App assetMap={manifest} />
     </StaticRouter>,
     {
-      bootstrapScripts: [getManifest()["main.js"]],
-      bootstrapScriptContent: `window.assetMap = ${JSON.stringify(
-        getManifest()
-      )};`,
+      bootstrapScripts: [manifest["main.js"]],
+      bootstrapScriptContent: `window.assetMap = ${JSON.stringify(manifest)};`,
       onShellReady() {
         res.setHeader("content-type", "text/html");
         pipe(res);

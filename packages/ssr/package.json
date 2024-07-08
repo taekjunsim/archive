@@ -2,8 +2,8 @@
   "name": "ssr",
   "packageManager": "yarn@4.3.1",
   "scripts": {
-    "build:client": "webpack --config-name client",
-    "build:server": "webpack --config-name server"
+    "build:client": "NODE_ENV=development webpack --config-name client",
+    "build:server": "NODE_ENV=development webpack --config-name server"
   },
   "dependencies": {
     "express": "^4.19.2",
