@@ -30,16 +30,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
-/***/ "./src/client/Main.module.css":
-/*!************************************!*\
-  !*** ./src/client/Main.module.css ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   main: () => (/* binding */ _1)\n/* harmony export */ });\n// extracted by mini-css-extract-plugin\nvar _1 = \"main\";\n\n\n\n//# sourceURL=webpack://ssr/./src/client/Main.module.css?");
-
-/***/ }),
-
 /***/ "../../node_modules/react-dom/cjs/react-dom.development.js":
 /*!*****************************************************************!*\
   !*** ../../node_modules/react-dom/cjs/react-dom.development.js ***!
@@ -174,9 +164,9 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
 /*!*****************************!*\
   !*** ./src/client/Main.tsx ***!
   \*****************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports[\"default\"] = Main;\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst react_1 = __webpack_require__(/*! react */ \"../../node_modules/react/index.js\");\nconst Main_module_css_1 = __importDefault(__webpack_require__(/*! ./Main.module.css */ \"./src/client/Main.module.css\"));\nfunction Main() {\n    const [count, setCount] = (0, react_1.useState)(0);\n    console.log(Main_module_css_1.default);\n    return ((0, jsx_runtime_1.jsxs)(\"div\", { className: Main_module_css_1.default.main, children: [\"Main Page Count: \", count, (0, jsx_runtime_1.jsx)(\"button\", { onClick: () => setCount((count) => count + 1), children: \"button\" })] }));\n}\n\n\n//# sourceURL=webpack://ssr/./src/client/Main.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports[\"default\"] = Main;\nconst jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"../../node_modules/react/jsx-runtime.js\");\nconst react_1 = __webpack_require__(/*! react */ \"../../node_modules/react/index.js\");\nfunction Main() {\n    const [count, setCount] = (0, react_1.useState)(0);\n    return ((0, jsx_runtime_1.jsxs)(\"div\", { children: [\"Main Page Count: \", count, (0, jsx_runtime_1.jsx)(\"button\", { onClick: () => setCount((count) => count + 1), children: \"button\" })] }));\n}\n\n\n//# sourceURL=webpack://ssr/./src/client/Main.tsx?");
 
 /***/ }),
 
