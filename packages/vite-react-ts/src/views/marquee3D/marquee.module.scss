@@ -1,0 +1,121 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 635px;
+  overflow: hidden;
+}
+
+.marquee {
+  position: absolute;
+  display: flex;
+  align-items: center;
+
+  animation: 13s linear infinite;
+
+  p {
+    background-image: linear-gradient(
+      to left,
+      rgba(62, 94, 224, 1),
+      rgba(30, 183, 232, 1)
+    );
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.toLeft {
+  top: 180px;
+  left: -98.31px;
+  width: 2400px;
+  height: 120px;
+  font-size: 64px;
+  line-height: 83.2px;
+  transform: rotate(-12.83deg);
+
+  &.main {
+    animation-name: to-left-main;
+  }
+
+  &.backup {
+    animation-name: to-left-backup;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+  }
+}
+
+@keyframes to-left-main {
+  from {
+    transform: rotate(-12.83deg) translateX(0);
+  }
+
+  to {
+    transform: rotate(-12.83deg) translateX(-2400px);
+  }
+}
+
+@keyframes to-left-backup {
+  from {
+    transform: rotate(-12.83deg) translateX(2400px);
+  }
+
+  to {
+    transform: rotate(-12.83deg) translateX(0);
+  }
+}
+
+.toRight {
+  top: 350px;
+  left: -437.82px;
+  width: 2700px;
+  height: 88px;
+  font-size: 48px;
+  line-height: 62.4px;
+  opacity: 80%;
+  transform: rotate(5.33deg);
+
+  &.main {
+    animation-name: to-right-main;
+  }
+
+  &.backup {
+    animation-name: to-right-backup;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 88px;
+    z-index: -1;
+  }
+}
+
+@keyframes to-right-main {
+  from {
+    transform: rotate(5.33deg) translateX(0);
+  }
+
+  to {
+    transform: rotate(5.33deg) translateX(2700px);
+  }
+}
+
+@keyframes to-right-backup {
+  from {
+    transform: rotate(5.33deg) translateX(-2700px);
+  }
+
+  to {
+    transform: rotate(5.33deg) translateX(0);
+  }
+}

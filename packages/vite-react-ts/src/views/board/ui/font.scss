@@ -1,0 +1,59 @@
+:root {
+  --font-size-10: 0.625rem;
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-24: 1.5rem;
+  --font-size-32: 2rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extraBold: 800;
+}
+
+/* 
+  TODO: til, font-face의 font-weight는 글꼴의 두께를 정의하는 것이다. 
+  e.g. font-weight가 400이면 regular 파일을 사용하라고 정의 
+*/
+@font-face {
+  font-family: "Pretendard";
+  src:
+    url("./fonts/Pretendard-Regular.subset.woff2") format("woff2"),
+    url("./fonts/Pretendard-Regular.subset.woff") format("woff"),
+    url("./fonts/Pretendard-Regular.ttf") format("truetype");
+  font-weight: 400;
+  // font-display: block;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src:
+    url("./fonts/Pretendard-Medium.subset.woff2") format("woff2"),
+    url("./fonts/Pretendard-Medium.subset.woff") format("woff"),
+    url("./fonts/Pretendard-Medium.ttf") format("truetype");
+  font-weight: 500;
+  // font-display: block;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src:
+    url("./fonts/Pretendard-Bold.subset.woff2") format("woff2"),
+    url("./fonts/Pretendard-Bold.subset.woff") format("woff"),
+    url("./fonts/Pretendard-Bold.ttf") format("truetype");
+  font-weight: 700;
+  // font-display: block;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src:
+    url("./fonts/Pretendard-ExtraBold.subset.woff2") format("woff2"),
+    url("./fonts/Pretendard-ExtraBold.subset.woff") format("woff"),
+    url("./fonts/Pretendard-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  // font-display: block;
+}

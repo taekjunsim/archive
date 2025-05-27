@@ -1,0 +1,14 @@
+.test {
+  &[data-empty="true"]:before {
+    content: attr(data-ph);
+    color: #9ca3af;
+    display: inline-block;
+  }
+}
+
+.context-menu {
+  position: absolute;
+  width: 160px;
+  border: 1px solid var(--border-secondary-02);
+  border-radius: 8px;
+}

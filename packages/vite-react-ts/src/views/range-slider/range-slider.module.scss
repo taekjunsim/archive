@@ -1,0 +1,42 @@
+$thumbDiameter: 32px;
+$railHeight: 7px;
+$railRadius: 20px;
+
+@mixin rail($color: #eaebec) {
+  top: calc($thumbDiameter / 2 - $railHeight);
+  border: $railHeight solid $color;
+  position: absolute;
+  border-radius: $railRadius;
+}
+
+.container {
+  position: relative;
+  height: $thumbDiameter;
+}
+
+.rail {
+  @include rail;
+  width: 200px;
+}
+
+.track {
+  @include rail(#6841ea);
+  border-radius: $railRadius 0 0 $railRadius;
+}
+
+.thumb {
+  position: absolute;
+  width: 200px;
+  background-color: transparent;
+  cursor: pointer;
+
+  // &::-webkit-slider-thumb {
+  //   appearance: none;
+  //   background: white;
+  //   border: 7px solid #6841ea;
+  //   width: $thumbDiameter;
+  //   height: $thumbDiameter;
+  //   border-radius: 50%;
+  //   cursor: pointer;
+  // }
+}
