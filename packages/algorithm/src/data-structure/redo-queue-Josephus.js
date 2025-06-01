@@ -4,6 +4,8 @@ const input = `7 3`;
 const [n, k] = input.split(" ").map(Number);
 const result = [];
 
+// 연결 리스트로도 해결 가능
+
 // GOOD
 const arr = Array.from({ length: n }, (_, i) => i + 1);
 let idx = 0;
